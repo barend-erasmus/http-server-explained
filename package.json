@@ -1,0 +1,25 @@
+{
+  "name": "http-server-explained",
+  "version": "1.0.0",
+  "description": "The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems. It is a generic, stateless, protocol which can be used for many tasks beyond its use for hypertext, such as name servers and distributed object management systems, through extension of its request methods, error codes and headers .",
+  "main": "index.js",
+  "scripts": {
+    "basic-1": "node ./basic-1/app.js",
+    "basic-1-client": "node ./client/app-1.js",
+    "basic-2": "node ./basic-2/app.js",
+    "basic-2-client": "node ./client/app-2.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barend-erasmus/http-server-explained.git"
+  },
+  "author": "Barend Erasmus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/barend-erasmus/http-server-explained/issues"
+  },
+  "homepage": "https://github.com/barend-erasmus/http-server-explained#readme",
+  "dependencies": {
+    "request": "^2.82.0"
+  }
+}
