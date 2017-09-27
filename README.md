@@ -113,7 +113,15 @@ Then once last message:
 
 * Connection closed
 
+If we look at bytes recieved, we can see that there is a **request line** which contains the method (POST), path (/hello/world) and version (HTTP/1.1). The **request line** is followed by a newline. 
+
+After the **request line** there is a set of headers followed by two newlines. 
+
+After these two newlines, the content follows.
+
 ## Basic 3
+
+Now that we can receive data from the client, we can start sending a response.
 
 ```
 Server started at: 127.0.0.1:3000
@@ -138,4 +146,4 @@ Connection closed
 
 # Useful Links
 
-(https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html)[HTTP Basics]
+[HTTP Basics](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html)
