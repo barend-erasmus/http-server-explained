@@ -136,3 +136,6 @@ connection: close
 Connection closed
 ```
 
+# Useful Links
+
+(HTP Basics)[https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html]
