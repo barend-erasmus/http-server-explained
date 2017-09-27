@@ -37,7 +37,7 @@ console.log(`Server started at: ${ADDRESS}:${PORT}`);
 * PORT: We specify a port for our TCP/IP server to listen for incomming traffic. The largest port number is 65535. In this example we have chosen port 3000.
 * ADDRESS: Machines can have multiple IP Addresses thus by specifying an specific IP Address we can listen for incomming traffic directed at this IP Address. In this example we have chosen to bind to 127.0.0.1.
 
-The output of this code would look something like this.
+When executing this code we should see the following.
 
 ```
 Server started at: 127.0.0.1:3000
@@ -45,9 +45,11 @@ Connected to 127.0.0.1:56304
 Connection closed
 ```
 
-We can see that the server waits for TCP/IP traffic on port 3000 and address 127.0.0.1, then a client connects from 127.0.0.1 (The client is on the same machine) and port 56304. Once the client is connected, we close the connection.
+The server waits for TCP/IP traffic on port 3000 and address 127.0.0.1, then a client connects from 127.0.0.1 (The client is on the same machine) and port 56304. Once the client is connected, we close the connection.
 
 ## Basic 2
+
+We need to make the following changes in order to see what the client is sending. Once we have recieved the first packet, the connection will be closed.
 
 ```javascript
 // Executes when connected.
@@ -71,7 +73,7 @@ function onData(socket, data) {
 }
 ```
 
-The output of this code would look something like this.
+After making the above mentioned changes our code should output the following.
 
 ```
 Server started at: 127.0.0.1:3000
@@ -87,3 +89,50 @@ Connection: close
 {"firstName":"Foo","lastName":"Bar"}
 Connection closed
 ```
+
+Our code outputs a few messages such as:
+
+* Server started at: 127.0.0.1:3000
+* Connected to 127.0.0.1:49206
+* Received 185 bytes
+
+Then the recieved bytes:
+
+```
+POST /hello/world HTTP/1.1
+host: 127.0.0.1:3000
+accept: application/json
+content-type: application/json
+content-length: 36
+Connection: close
+
+{"firstName":"Foo","lastName":"Bar"}
+```
+
+Then once last message:
+
+* Connection closed
+
+## Basic 3
+
+```
+Server started at: 127.0.0.1:3000
+Connected to 127.0.0.1:49206
+Received 185 bytes
+POST /hello/world HTTP/1.1
+host: 127.0.0.1:3000
+accept: application/json
+content-type: application/json
+content-length: 36
+Connection: close
+
+{"firstName":"Foo","lastName":"Bar"}
+Sending response.
+HTTP/1.1 200 OK
+content-length: 17
+connection: close
+
+{"success": true}
+Connection closed
+```
+
