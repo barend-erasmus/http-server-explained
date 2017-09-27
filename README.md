@@ -127,7 +127,7 @@ content-length: 36
 Connection: close
 
 {"firstName":"Foo","lastName":"Bar"}
-Sending response.
+Sending response
 HTTP/1.1 200 OK
 content-length: 17
 connection: close
@@ -138,4 +138,4 @@ Connection closed
 
 # Useful Links
 
-(HTP Basics)[https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html]
+(https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html)[HTTP Basics]

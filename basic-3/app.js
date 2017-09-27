@@ -32,7 +32,7 @@ function onData(socket, data) {
     const response = `HTTP/1.1 200 OK\r\ncontent-length: ${bodyOfResponse.length}\r\nconnection: close\r\n\r\n${bodyOfResponse}`;
 
     // Sends response.
-    console.log('Sending response.');
+    console.log('Sending response');
     socket.write(response);
     console.log(response);
 
