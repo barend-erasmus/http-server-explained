@@ -70,3 +70,20 @@ function onData(socket, data) {
     socket.destroy();
 }
 ```
+
+The output of this code would look something like this.
+
+```
+Server started at: 127.0.0.1:3000
+Connected to 127.0.0.1:49206
+Received 185 bytes
+POST /hello/world HTTP/1.1
+host: 127.0.0.1:3000
+accept: application/json
+content-type: application/json
+content-length: 36
+Connection: close
+
+{"firstName":"Foo","lastName":"Bar"}
+Connection closed
+```
