@@ -17,6 +17,7 @@ function onConnected(socket) {
 
   // Closes connection
   socket.destroy();
+  console.log('Connection closed');
 }
 
 console.log(`Server started at: ${ADDRESS}:${PORT}`);

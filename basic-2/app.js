@@ -19,6 +19,7 @@ function onConnected(socket) {
 
   // Closes connection (Not needed anymore).
   // socket.destroy();
+  // console.log('Connection closed');
 }
 
 // Executes when bytes are received.
@@ -29,6 +30,7 @@ function onData(socket, data) {
 
     // Closes connection.
     socket.destroy();
+    console.log('Connection closed');
 }
 
 console.log(`Server started at: ${ADDRESS}:${PORT}`);
