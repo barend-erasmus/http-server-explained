@@ -123,6 +123,44 @@ After these two newlines, the content follows.
 
 Now that we can receive data from the client, we can start sending a response.
 
+Just like the request has a specific format, the response needs to be a specific format as well.
+
+The first line will contain the version (HTTP/1.1), the status code (200) and the reason phrase (OK).
+The next few lines are headers and then two newline before we send the content.
+
+Here is the response that we are sending.
+
+```
+HTTP/1.1 200 OK
+content-length: 17
+connection: close
+
+{"success": true}
+```
+
+```javascript
+// Executes when bytes are received.
+function onData(socket, data) {
+    console.log(`Received ${data.length} bytes`);
+
+    console.log(data.toString());
+
+    const bodyOfResponse = `{"success": true}`;
+    const response = `HTTP/1.1 200 OK\r\ncontent-length: ${bodyOfResponse.length}\r\nconnection: close\r\n\r\n${bodyOfResponse}`;
+
+    // Sends response.
+    console.log('Sending response');
+    socket.write(response);
+    console.log(response);
+
+    // Closes connection.
+    socket.destroy();
+    console.log('Connection closed');
+}
+```
+
+After making these necessary changes to send a response, we should see an output similar to the following.
+
 ```
 Server started at: 127.0.0.1:3000
 Connected to 127.0.0.1:49206
@@ -143,6 +181,8 @@ connection: close
 {"success": true}
 Connection closed
 ```
+
+To see the full code, click [here](https://github.com/barend-erasmus/http-server-explained/blob/master/basic-3/app.js).
 
 # Useful Links
 
