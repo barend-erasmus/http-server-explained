@@ -9,7 +9,8 @@
     "basic-2": "node ./basic-2/app.js",
     "basic-2-client": "node ./client/app-2.js",
     "basic-3": "node ./basic-3/app.js",
-    "basic-3-client": "node ./client/app-3.js"
+    "basic-3-client": "node ./client/app-3.js",
+    "client": "node ./client/client.js"
   },
   "repository": {
     "type": "git",
